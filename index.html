@@ -19,6 +19,23 @@
   <script>
 
     function helloworld(derp){
+
+        $Lightning.use(
+            appName,
+            function() {
+            $Lightning.use(
+                componentName,
+                componentAttributes,
+                targetElement,
+                function(cmp) {
+                    console.log("LWC component was created");
+                }
+            );
+        },
+        lightningEndPointURI,
+        authToken
+        );
+    }
         
       const appName = 'c:LightningOut';
       const componentName = 'c:helloWorld';
@@ -43,9 +60,6 @@
       lightningEndPointURI,
       authToken
       );
-    }
-
-    helloworld('');
 
   </script>
 
