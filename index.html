@@ -23,7 +23,9 @@
   <script>
 
     function setNewId(){
-
+        let value = document.getElementById('productidinput').value;
+        console.log('github: Setting value:', value);
+        lwc.elements[0].productId = value;
     }
 
 
