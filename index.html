@@ -1,1 +1,52 @@
-<p>hællæ værld</p>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Lightning out test</title>
+  </head>
+  <body>
+    
+  <div id="lightning">
+  </div>
+  <script src="https://bicx--compoc.sandbox.my.site.com/comtest/lightning/lightning.out.js"></script>
+  <script>
+
+    function helloworld(productId){
+        
+      const appName = 'c:LightningOut';
+      const componentName = 'c:helloWorld';
+      const lightningEndPointURI = 'https://bicx--compoc.sandbox.my.site.com/comtest';
+      // Target element er dom element componenten skal henges på
+      const targetElement = 'lightning';
+      const componentAttributes = {};
+      const authToken ='';
+
+      $Lightning.use(
+          appName,
+          function() {
+          $Lightning.createComponent(
+              componentName,
+              componentAttributes,
+              targetElement,
+              function(cmp) {
+                  console.log("LWC component was created");
+              }
+          );
+      },
+      lightningEndPointURI,
+      authToken
+      );
+    }
+
+    helloworld('');
+
+  </script>
+
+
+  </body>
+</html>
