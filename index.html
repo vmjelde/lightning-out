@@ -16,6 +16,7 @@
 
     <button onclick="helloworld('Second Product')">Generate component</button>
     <button onclick="testGlobal()">Update product id</button>
+    <button onclick="setNewId()">SET NEW ID</button>
     
   <div id="lightning">
   </div>
@@ -23,6 +24,7 @@
   <script>
 
     function setNewId(){
+        console.log('setNewId');
         let value = document.getElementById('productidinput').value;
         console.log('github: Setting value:', value);
         lwc.elements[0].productId = value;
