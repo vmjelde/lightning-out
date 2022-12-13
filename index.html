@@ -45,14 +45,15 @@
         $Lightning.use(
             appName,
             function() {
-            //cmp.destroy();
+            //lwc.destroy();
             $Lightning.createComponent(
                 componentName,
                 componentAttributes,
                 targetElement,
-                function(cmp, status) {
+                function(cmp) {
                     console.log("LWC component was updated");
                     lwc = cmp;
+                    console.log("lwc", lwc);
                 }
             );
         },
@@ -61,7 +62,7 @@
         );
     }
         
-      var cmp;
+      var lwc;
       const appName = 'c:LightningOut';
       const componentName = 'c:helloWorld';
       const lightningEndPointURI = 'https://velocity-fun-4765.scratch.my.site.com/student';
