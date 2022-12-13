@@ -18,6 +18,10 @@
   <script src="https://velocity-fun-4765.scratch.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
 
+    function testGlobal(){
+        console.log(appName);
+    }
+
     function helloworld(derp){
     
         const appName = 'c:LightningOut';
@@ -28,7 +32,6 @@
         const componentAttributes = {productId: derp};
         const authToken ='';
 
-
         $Lightning.use(
             
             appName,
@@ -38,7 +41,7 @@
                 componentAttributes,
                 targetElement,
                 function(cmp) {
-                    console.log("LWC component was created 2");
+                    console.log("LWC component was updated");
                 }
             );
         },
@@ -52,7 +55,7 @@
       const lightningEndPointURI = 'https://velocity-fun-4765.scratch.my.site.com/student';
       // Target element er dom element componenten skal henges på
       const targetElement = 'lightning';
-      const componentAttributes = {productId: 'First product'};
+      const componentAttributes = {};
       const authToken ='';
 
       $Lightning.use(
@@ -63,7 +66,7 @@
               componentAttributes,
               targetElement,
               function(cmp) {
-                  console.log("LWC component was created 3");
+                  console.log("LWC component was created");
               }
           );
       },
