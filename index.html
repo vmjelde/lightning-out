@@ -31,19 +31,19 @@
 
         $Lightning.use(
             
-            this.appName,
+            appName,
             function() {
             $Lightning.createComponent(
-                this.componentName,
+                componentName,
                 componentAttributes,
-                this.targetElement,
+                targetElement,
                 function(cmp) {
                     console.log("LWC component was created 2");
                 }
             );
         },
-        this.lightningEndPointURI,
-        this.authToken
+        lightningEndPointURI,
+        authToken
         );
     }
         
