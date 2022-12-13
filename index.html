@@ -44,14 +44,14 @@
         $Lightning.use(
             appName,
             function() {
-            lwc.destroy();
+            //lwc.destroy();
             $Lightning.createComponent(
                 componentName,
                 componentAttributes,
                 targetElement,
-                function(cmp) {
+                function(result) {
                     console.log("LWC component was updated");
-                    lwc = cmp;
+                    lwc = result.cmp;
                     console.log("lwc", lwc);
                 }
             );
