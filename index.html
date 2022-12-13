@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <button onclick="helloworld('YO man')">Generate component</button>
+    <button onclick="helloworld('Second Product')">Generate component</button>
     
   <div id="lightning">
   </div>
@@ -19,7 +19,15 @@
   <script>
 
     function helloworld(derp){
+    
+        const appName = 'c:LightningOut';
+        const componentName = 'c:helloWorld';
+        const lightningEndPointURI = 'https://velocity-fun-4765.scratch.my.site.com/student';
+        // Target element er dom element componenten skal henges på
+        const targetElement = 'lightning';
         const componentAttributes = {productId: derp};
+        const authToken ='';
+
 
         $Lightning.use(
             
@@ -44,7 +52,7 @@
       const lightningEndPointURI = 'https://velocity-fun-4765.scratch.my.site.com/student';
       // Target element er dom element componenten skal henges på
       const targetElement = 'lightning';
-      const componentAttributes = {};
+      const componentAttributes = {productId: 'First product'};
       const authToken ='';
 
       $Lightning.use(
