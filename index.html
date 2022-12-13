@@ -49,9 +49,9 @@
                 componentName,
                 componentAttributes,
                 targetElement,
-                function(result) {
+                function(cmp) {
                     console.log("LWC component was updated");
-                    lwc = result.cmp;
+                    lwc = cmp;
                     console.log("lwc", lwc);
                 }
             );
