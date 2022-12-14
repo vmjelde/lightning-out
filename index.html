@@ -16,7 +16,8 @@
 
     <button onclick="setNewId()">Add Product</button>
     
-  <div id="lightning"></div>
+  <div id="lightning">
+  </div>
   <script src="https://velocity-fun-4765.scratch.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
 
@@ -35,23 +36,22 @@
     const componentAttributes = {};
     const authToken ='';
 
-        $Lightning.use(
-            appName,
-            function() {
-            $Lightning.createComponent(
-                componentName,
-                componentAttributes,
-                targetElement,
-                function(cmp) {
-                    lwc = cmp.elements[0];
-                    console.log("LWC component was created");
-                }
-            );
-        },
-        lightningEndPointURI,
-        authToken
+    $Lightning.use(
+        appName,
+        function() {
+        $Lightning.createComponent(
+            componentName,
+            componentAttributes,
+            targetElement,
+            function(cmp) {
+                lwc = cmp.elements[0];
+                console.log("LWC component was created");
+            }
         );
-
+    },
+    lightningEndPointURI,
+    authToken
+    );
 
   </script>
 
