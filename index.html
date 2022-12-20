@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <button onclick="login()">Login</button>
+    <button onclick="authorize()">Authorize</button>
     <button onclick="getToken()">getToken</button>
 
     <label for="productidinput">Product Id</label>
@@ -54,6 +54,9 @@
       xhttp.onload = ()=>{
         console.log(xhttp.response);
         let resp = JSON.parse(xhttp.response);
+        for(let param in resp){
+          console.log(param + ': ' + resp[param]);
+        }
       }
 
       xhttp.onreadystatechange = () => {
@@ -62,16 +65,10 @@
           const contentType = xhttp.getResponseHeader("Content-Type");
         }
       }
-
-      console.log('done?');
-
     }
 
-    function login(){
-      console.log('login');
-
+    function authorize(){
       location.href = "https://ruby-computing-2608.scratch.my.site.com/student/services/oauth2/authorize?client_id=3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
-
     }
     function setNewId(){
         let value = document.getElementById('productidinput').value;
