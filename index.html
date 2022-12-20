@@ -18,6 +18,7 @@
     <input id="productidinput" type="text">
 
     <button onclick="setNewId()">Add Product</button>
+    <button onclick="runApex()">Get Contact</button>
     
   <div id="lightning">
   </div>
@@ -74,6 +75,11 @@
         let value = document.getElementById('productidinput').value;
         lwc.productId = value;
         lwc.debugFromLWC('Du tastet inn: ' + value);
+    }
+
+    function runApex(){
+      let temp = lwc.getContactId();
+      console.log(temp);
     }
         
     var lwc;
