@@ -13,17 +13,23 @@
 
     <button onclick="authorize()">Authorize</button>
     <button onclick="getToken()">getToken</button>
+    <button onclick="createCart()">create Cart</button>
 
     <label for="productidinput">Product Id</label>
     <input id="productidinput" type="text">
 
     <button onclick="setNewId()">Add Product</button>
     <button onclick="checkAuthToken()">check authToken</button>
+    <button onclick="runApex()">runApex</button>
     
   <div id="lightning">
   </div>
   <script src="https://ruby-computing-2608.scratch.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
+
+    function runApex(){
+      console.log(lwc.getContactId);
+    }
 
     function getToken(){
       console.log("getToken");
@@ -91,22 +97,24 @@
     const componentAttributes = {};
     var authToken ='';
 
-    $Lightning.use(
-        appName,
-        function() {
-        $Lightning.createComponent(
-            componentName,
-            componentAttributes,
-            targetElement,
-            function(cmp) {
-                lwc = cmp.elements[0];
-                console.log("LWC component was created");
-            }
-        );
-    },
-    lightningEndPointURI,
-    authToken
-    );
+    function createCart(){
+      $Lightning.use(
+          appName,
+          function() {
+          $Lightning.createComponent(
+              componentName,
+              componentAttributes,
+              targetElement,
+              function(cmp) {
+                  lwc = cmp.elements[0];
+                  console.log("LWC component was created");
+              }
+          );
+      },
+      lightningEndPointURI,
+      authToken
+      );
+    }
 
   </script>
 
