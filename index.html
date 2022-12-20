@@ -58,6 +58,7 @@
         for(let param in resp){
           console.log(param + ': ' + resp[param]);
         }
+        authToken = resp.access_token;
       }
 
       xhttp.onreadystatechange = () => {
@@ -89,7 +90,7 @@
     // Target element er dom element componenten skal henges på
     const targetElement = 'lightning';
     const componentAttributes = {};
-    const authToken ='';
+    var authToken ='';
 
     $Lightning.use(
         appName,
