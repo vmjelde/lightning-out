@@ -18,7 +18,7 @@
     <input id="productidinput" type="text">
 
     <button onclick="setNewId()">Add Product</button>
-    <button onclick="runApex()">Get Contact</button>
+    <button onclick="checkAuthToken()">check authToken</button>
     
   <div id="lightning">
   </div>
@@ -78,9 +78,8 @@
         lwc.debugFromLWC('Du tastet inn: ' + value);
     }
 
-    function runApex(){
-      let temp = lwc.getContactId();
-      console.log(temp);
+    function checkAuthToken(){
+      console.log(authToken);
     }
         
     var lwc;
