@@ -18,10 +18,23 @@
 
     <button onclick="setNewId()">Add Product</button>
     
-  <div id="lightning">
+  <div onload="getToken()" id="lightning">
   </div>
   <script src="https://ruby-computing-2608.scratch.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
+
+    function getToken(){
+      let paramString = location.href.split("?")[1];
+      let paramStringList = paramString.split("&");
+      let params = {};
+      for(let paramString of paramStringList){
+        let keyValue = paramString.split("=");
+        params[keyValue[0]] = keyValue[1];
+      }
+
+      console.log(params);
+      console.log(params.code);
+    }
 
     function login(){
       console.log('login');
