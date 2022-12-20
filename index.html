@@ -30,12 +30,22 @@
       const client_secret = "02089FA6BFE9D36E92FC70FB0B6A7F02BB8E95953366B99DBA8EF574159F170F";
       const response_type = "code";
       const baseURL = "https://https://ruby-computing-2608.scratch.my.salesforce.com/services/oauth2/token";
+      const redirect_uri = "https://vmjelde.github.io/lightning-out/";
       
       const requestURL = baseURL + "?resonse_type=" + response_type + "&client_id=" + client_id + "&client_secret=" + client_secret;
 
+
+      const newURL = "https://ruby-computing-2608.scratch.my.salesforce.com/services/oauth2/authorize?client_id=3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
+
       let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", requestURL);
+      xhttp.open("POST", newURL);
       xhttp.send();
+
+
+      xhttp.onload = ()=>{
+        console.log(xhttp.response);
+        let resp = JSON.parse(xhttp.response);
+      }
 
       xhttp.onreadystatechange = () => {
         if (xhttp.readyState === xhttp.HEADERS_RECEIVED) {
