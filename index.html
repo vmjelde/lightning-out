@@ -24,8 +24,8 @@
   <script>
 
     function getToken(){
-      let paramString = location.href.split("?")[1];
-      let paramStringList = paramString.split("&");
+      console.log("getToken");
+      let paramStringList = location.href.split("?")[1]?.split("&");
       let params = {};
       for(let paramString of paramStringList){
         let keyValue = paramString.split("=");
