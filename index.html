@@ -85,10 +85,10 @@
       }
     }
 
-    
+
 
     function authorize(){
-      const authURL = baseURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri;
+      const authURL = baseURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri + "&response_type=code";
       location.href = authURL;
     }
     function setNewId(){
