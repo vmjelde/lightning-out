@@ -42,7 +42,7 @@
     const client_secret = "D83922EDA8AB5A1A233AF06AFF0E0C3D48CD5B63A57149CA8468B606D66133CF";
     const response_type = "code";
     const baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/";
-    const siteURL = "https://efficiency-customer-8326.my.site.com/applicant/services/oauth2/"
+    const siteURL = "https://efficiency-customer-8326.scratch.my.site.com/applicant/services/oauth2/"
     const redirect_uri = "https://vmjelde.github.io/lightning-out";
     const grant_type = "authorization_code";
 
@@ -90,10 +90,10 @@
 
 
     function authorize(){
-      const authURL = siteURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri + "&response_type=code";
+      const authURL = siteURL + "authorize" + "?client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&response_type=code";
       location.href = authURL;
-      "https://efficiency-customer-8326.scratch.my.site.com/applicant/services/oauth2/authorize?client_id=3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc&redirect_urihttps://vmjelde.github.io/lightning-out&response_type=code"
-      "https://ruby-computing-2608.scratch.my.site.com/student/services/oauth2/authorize?client_id=3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
+      //"https://efficiency-customer-8326.scratch.my.site.com/applicant/services/oauth2/authorize?client_id=3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc&redirect_urihttps://vmjelde.github.io/lightning-out&response_type=code"
+      //"https://ruby-computing-2608.scratch.     my.site.com/student  /services/oauth2/authorize?client_id=3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
     }
     function setNewId(){
         let value = document.getElementById('productidinput').value;
