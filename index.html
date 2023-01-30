@@ -11,21 +11,30 @@
   </head>
   <body>
 
-    <button onclick="authorize()">Authorize</button>
-    <button onclick="getToken()">getToken</button>
+    <button onclick="authorize()">Authorize Connected App</button>
+    <button onclick="getToken()">get Access Token</button>
+    <button onclick="checkAuthToken()">check authToken</button>
+    <br>
     <button onclick="createCart()">create Cart</button>
 
     <label for="productidinput">Product Id</label>
     <input id="productidinput" type="text">
 
     <button onclick="setNewId()">Add Product</button>
-    <button onclick="checkAuthToken()">check authToken</button>
     <button onclick="runApex()">runApex</button>
     
   <div id="lightning">
   </div>
   <script src="https://efficiency-customer-8326.scratch.my.site.com/applicant/lightning/lightning.out.js"></script>
   <script>
+
+    
+    const client_id = "3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc";
+    const client_secret = "D83922EDA8AB5A1A233AF06AFF0E0C3D48CD5B63A57149CA8468B606D66133CF";
+    const response_type = "code";
+    const baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/";
+    const redirect_uri = "https://vmjelde.github.io/lightning-out";
+    const grant_type = "authorization_code";
 
     function runApex(){
       let temp = lwc.getContactId();
@@ -44,13 +53,7 @@
       console.log('params', params);
       console.log('params.code', params.code);
 
-      var client_id = "3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc";
-      var client_secret = "D83922EDA8AB5A1A233AF06AFF0E0C3D48CD5B63A57149CA8468B606D66133CF";
-      var response_type = "code";
-      var baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/";
-      var redirect_uri = "https://vmjelde.github.io/lightning-out";
-      var grant_type = "authorization_code";
-      var code = params.code;
+      const code = params.code;
       
       const requestURL = baseURL + "token" + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
 
