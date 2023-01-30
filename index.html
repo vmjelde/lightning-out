@@ -89,7 +89,7 @@
 
 
     function authorize(){
-      const authURL = baseURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri + "&response_type=code";
+      const authURL = 'https://efficiency-customer-8326.scratch.my.site.com/applicant/services/oauth2/' + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri + "&response_type=code";
       location.href = authURL;
     }
     function setNewId(){
