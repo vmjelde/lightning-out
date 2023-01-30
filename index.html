@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +8,16 @@
     <title>Lightning out test</title>
   </head>
   <body>
+
+
+    <label for="base_url">baseURL</label>
+    <input id="base_url" type="text">   
+    <label for="client_secret_input">client_secret</label>
+    <input id="client_secret_input" type="text">   
+    <label for="client_secret_input">client_secret</label>
+    <input id="client_secret_input" type="text">  
+    
+    <button onclick="saveinputs()">Save</button>
 
     <button onclick="authorize()">Authorize Connected App</button>
     <button onclick="getToken()">get Access Token</button>
@@ -36,11 +44,9 @@
     const redirect_uri = "https://vmjelde.github.io/lightning-out";
     const grant_type = "authorization_code";
 
-    function runApex(){
-      let temp = lwc.getContactId();
-      console.log(temp);
+    function saveinouts(){
+      window.localStorage.setItem('derp', 'lerp')
     }
-
     function getToken(){
       console.log("getToken");
       let paramStringList = location.href.split("?")[1]?.split("&");
@@ -78,6 +84,8 @@
         }
       }
     }
+
+    
 
     function authorize(){
       const authURL = baseURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri;
@@ -120,6 +128,13 @@
       authToken
       );
     }
+
+    
+    function runApex(){
+      let temp = lwc.getContactId();
+      console.log(temp);
+    }
+
 
   </script>
 
