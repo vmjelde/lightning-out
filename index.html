@@ -47,12 +47,12 @@
       const client_id = "3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc";
       const client_secret = "D83922EDA8AB5A1A233AF06AFF0E0C3D48CD5B63A57149CA8468B606D66133CF";
       const response_type = "code";
-      const baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/token";
+      const baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/";
       const redirect_uri = "https://vmjelde.github.io/lightning-out";
       const grant_type = "authorization_code";
       const code = params.code;
       
-      const requestURL = baseURL + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
+      const requestURL = baseURL + "token" + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
 
       let xhttp = new XMLHttpRequest();
       xhttp.open("POST", requestURL);
@@ -77,7 +77,8 @@
     }
 
     function authorize(){
-      location.href = "https://efficiency-customer-8326.scratch.my.site.com/applicant/services/oauth2/authorize?client_id=3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
+      const authURL = baseURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri;
+      location.href = authURL;
     }
     function setNewId(){
         let value = document.getElementById('productidinput').value;
