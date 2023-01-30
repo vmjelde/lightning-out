@@ -44,13 +44,13 @@
       console.log('params', params);
       console.log('params.code', params.code);
 
-      const client_id = "3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc";
-      const client_secret = "D83922EDA8AB5A1A233AF06AFF0E0C3D48CD5B63A57149CA8468B606D66133CF";
-      const response_type = "code";
-      const baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/";
-      const redirect_uri = "https://vmjelde.github.io/lightning-out";
-      const grant_type = "authorization_code";
-      const code = params.code;
+      var client_id = "3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc";
+      var client_secret = "D83922EDA8AB5A1A233AF06AFF0E0C3D48CD5B63A57149CA8468B606D66133CF";
+      var response_type = "code";
+      var baseURL = "https://efficiency-customer-8326.scratch.my.salesforce.com/services/oauth2/";
+      var redirect_uri = "https://vmjelde.github.io/lightning-out";
+      var grant_type = "authorization_code";
+      var code = params.code;
       
       const requestURL = baseURL + "token" + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
 
@@ -77,7 +77,7 @@
     }
 
     function authorize(){
-      const authURL = this.baseURL + "authorize" + "?client_id=" + this.client_id + "&redirect_uri" + this.redirect_uri;
+      const authURL = baseURL + "authorize" + "?client_id=" + client_id + "&redirect_uri" + redirect_uri;
       location.href = authURL;
     }
     function setNewId(){
