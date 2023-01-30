@@ -9,21 +9,24 @@
   </head>
   <body>
 
-
+  <section>
     <label for="base_url">baseURL</label>
     <input id="base_url" type="text">   
     <label for="client_secret_input">client_secret</label>
     <input id="client_secret_input" type="text">   
     <label for="client_secret_input">client_secret</label>
     <input id="client_secret_input" type="text">  
-    
-    <button onclick="saveinputs()">Save</button>
-    <br>
 
+    <button onclick="saveinputs()">Save</button>
+  </section>
+
+  <section>
     <button onclick="authorize()">Authorize Connected App</button>
     <button onclick="getToken()">get Access Token</button>
     <button onclick="checkAuthToken()">check authToken</button>
-    <br>
+  </section>
+
+  <section>
     <button onclick="createCart()">create Cart</button>
 
     <label for="productidinput">Product Id</label>
@@ -135,6 +138,11 @@
 
   </script>
 
+  <style>
+    section{
+      margin-bottom: 1rem;
+    }
+  </style>
 
   </body>
 </html>
