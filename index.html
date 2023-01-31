@@ -10,16 +10,18 @@
     <title>Lightning out test</title>
   </head>
   <body>
+  <section>
+      <button onclick="authorize()">Authorize</button>
+      <button onclick="getToken()">getToken</button>
+      <button onclick="checkAuthToken()">check authToken</button>
+  </section>
 
-    <button onclick="authorize()">Authorize</button>
-    <button onclick="getToken()">getToken</button>
     <button onclick="createCart()">create Cart</button>
 
     <label for="productidinput">Product Id</label>
     <input id="productidinput" type="text">
 
     <button onclick="setNewId()">Add Product</button>
-    <button onclick="checkAuthToken()">check authToken</button>
     <button onclick="runApex()">runApex</button>
     
   <div id="lightning">
@@ -119,6 +121,11 @@
 
   </script>
 
+  <style>
+    section{
+      margin-bottom: 1rem;
+    }
+  </style>
 
   </body>
 </html>
