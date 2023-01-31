@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,58 +11,27 @@
   </head>
   <body>
 
-  <section>
-    <label for="base_url">baseURL</label>
-    <input id="base_url" type="text">   
-    <label for="client_secret_input">client_secret</label>
-    <input id="client_secret_input" type="text">   
-    <label for="client_secret_input">client_secret</label>
-    <input id="client_secret_input" type="text">  
-
-    <button onclick="saveinputs()">Save</button>
-  </section>
-
-  <section>
-    <button onclick="authorize()">Authorize Connected App</button>
-    <button onclick="getToken()">get Access Token</button>
-    <button onclick="checkAuthToken()">check authToken</button>
-  </section>
-
-  <section>
+    <button onclick="authorize()">Authorize</button>
+    <button onclick="getToken()">getToken</button>
     <button onclick="createCart()">create Cart</button>
 
     <label for="productidinput">Product Id</label>
     <input id="productidinput" type="text">
 
     <button onclick="setNewId()">Add Product</button>
+    <button onclick="checkAuthToken()">check authToken</button>
     <button onclick="runApex()">runApex</button>
     
   <div id="lightning">
   </div>
-  <script src="https://enterprise-site-9357.scratch.my.site.com/applicant/lightning/lightning.out.js"></script>
+  <script src="https://enterprise-site-9357.scratch.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
 
-    
-    const client_id = "3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N";
-    const client_secret = "A77F4A8C1DC18E772D2B0AB660D087385D4F93684A9F2B3E931B59321D1E86E8";
-    const response_type = "code";
-    const baseURL = "https://enterprise-site-9357.scratch.my.salesforce.com/services/oauth2/";
-    const siteURL = "https://enterprise-site-9357.scratch.my.site.com/applicant/services/oauth2/"
-    const redirect_uri = "https://vmjelde.github.io/lightning-out";
-    const grant_type = "authorization_code";
+    function runApex(){
+      let temp = lwc.getContactId();
+      console.log(temp);
+    }
 
-    function authorize(){
-      const authURL = siteURL + "authorize" + "?client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&response_type=code";
-      let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", authURL);
-      xhttp.send();
-      //location.href = authURL;
-      //"https://enterprise-site-9357.scratch.my.site.com/applicant/services/oauth2/authorize?client_id=3MVG931doue2KUvy83323HyVt7BHLUL1IseDKEm.FjzeNDDJDvFFeUxokj1kohmahNnr9wr5DGPipH7PH.vMc&redirect_urihttps://vmjelde.github.io/lightning-out&response_type=code"
-      //"https://ruby-computing-2608.scratch.     my.site.com/student  /services/oauth2/authorize?client_id=3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
-    }
-    function saveinputs(){
-      window.localStorage.setItem('derp', 'lerp')
-    }
     function getToken(){
       console.log("getToken");
       let paramStringList = location.href.split("?")[1]?.split("&");
@@ -73,9 +44,15 @@
       console.log('params', params);
       console.log('params.code', params.code);
 
+      const client_id = "3MVG90J3nJBMnqrTSEFwQhhtC6vJE0MNoo6H6e7B7Vt8gkDYnUPBUz.l3syVc7HRSnB5.vOQtqwwU_6WYLCmB";
+      const client_secret = "02089FA6BFE9D36E92FC70FB0B6A7F02BB8E95953366B99DBA8EF574159F170F";
+      const response_type = "code";
+      const baseURL = "https://enterprise-site-9357.scratch.my.salesforce.com/services/oauth2/token";
+      const redirect_uri = "https://vmjelde.github.io/lightning-out";
+      const grant_type = "authorization_code";
       const code = params.code;
       
-      const requestURL = baseURL + "token" + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
+      const requestURL = baseURL + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&client_secret=" + client_secret + "&redirect_uri=" + redirect_uri;
 
       let xhttp = new XMLHttpRequest();
       xhttp.open("POST", requestURL);
@@ -99,6 +76,9 @@
       }
     }
 
+    function authorize(){
+      location.href = "https://enterprise-site-9357.scratch.my.site.com/student/services/oauth2/authorize?client_id=3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
+    }
     function setNewId(){
         let value = document.getElementById('productidinput').value;
         lwc.productId = value;
@@ -136,17 +116,6 @@
       authToken
       );
     }
-
-  </script>
-
-  <style>
-    section{
-      margin-bottom: 1rem;
-    }
-  </style>
-
-  </body>
-</html>
 
   </script>
 
