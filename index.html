@@ -29,7 +29,6 @@
     // AUTHORIZATION
 
       const client_id = "3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N";
-      const client_secret = "A77F4A8C1DC18E772D2B0AB660D087385D4F93684A9F2B3E931B59321D1E86E8";
       const response_type = "code";
       const baseURL = "https://enterprise-site-9357.my.site.com/student/services/oauth2/";
       const redirect_uri = "https://vmjelde.github.io/lightning-out";
@@ -37,11 +36,12 @@
 
     var authToken ='';
     var refreshToken = '';
+    var response;
 
     function authorize(){
       console.log("authorize");
       const requestURL = 
-      location.href = "https://enterprise-site-9357.my.site.com/student/services/oauth2/" + "authorize" + "?client_id=" + client_id
+      location.href = baseURL + "authorize" + "?client_id=" + client_id
       + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code";
     }
     function getToken(){
@@ -65,6 +65,7 @@
 
       xhttp.onload = ()=>{
         let resp = JSON.parse(xhttp.response);
+        response = resp;
         for(let param in resp){
           console.log(param + ': ' + resp[param]);
         }
@@ -80,7 +81,7 @@
     }
 
     function checkAuthToken(){
-      console.log(authToken);
+      console.log(response);
     }
 
     // Refresh token?
