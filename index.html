@@ -40,9 +40,27 @@
 
     function authorize(){
       console.log("authorize");
-      const requestURL = 
-      location.href = baseURL + "authorize" + "?client_id=" + client_id
-      + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code";
+      const requestURL = baseURL + "authorize" + "?client_id=" + client_id
+      + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code"
+
+      + "&code_challenge=elU6u5zyqQT2f92GRQUq6PautAeNDf4DQPayyR0ek_c"
+      + "&code_challenge_method=S256";
+
+
+      
+      let xhttp = new XMLHttpRequest();
+      xhttp.open("POST", requestURL);
+      xhttp.send();
+
+      xhttp.onload = ()=>{
+        let resp = JSON.parse(xhttp.response);
+        for(let param in resp){
+          console.log(param + ': ' + resp[param]);
+        }
+      }
+
+
+      //location.href = requestURL;
     }
     function getToken(){
       console.log("getToken");
