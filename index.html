@@ -45,19 +45,19 @@
 
 
       
-      let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", requestURL);
-      xhttp.send();
+      //let xhttp = new XMLHttpRequest();
+      //xhttp.open("POST", requestURL);
+      //xhttp.send();
+//
+      //xhttp.onload = ()=>{
+      //  let resp = JSON.parse(xhttp.response);
+      //  for(let param in resp){
+      //    console.log(param + ': ' + resp[param]);
+      //  }
+      //}
 
-      xhttp.onload = ()=>{
-        let resp = JSON.parse(xhttp.response);
-        for(let param in resp){
-          console.log(param + ': ' + resp[param]);
-        }
-      }
 
-
-      //location.href = requestURL;
+      location.href = requestURL;
     }
     function getToken(){
       console.log("getToken");
