@@ -26,6 +26,7 @@
   <script src="https://enterprise-site-9357.scratch.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
 
+    // AUTHORIZATION
 
       const client_id = "3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N";
       const client_secret = "A77F4A8C1DC18E772D2B0AB660D087385D4F93684A9F2B3E931B59321D1E86E8";
@@ -34,11 +35,15 @@
       const redirect_uri = "https://vmjelde.github.io/lightning-out";
       const grant_type = "authorization_code";
 
-    function runApex(){
-      let temp = lwc.getContactId();
-      console.log(temp);
-    }
+    var authToken ='';
+    var refreshToken = '';
 
+    function authorize(){
+      console.log("authorize");
+      const requestURL = 
+      location.href = "https://enterprise-site-9357.my.site.com/student/services/oauth2/" + "authorize" + "?client_id=" + client_id
+      + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code";
+    }
     function getToken(){
       console.log("getToken");
       let paramStringList = location.href.split("?")[1]?.split("&");
@@ -48,8 +53,7 @@
         params[keyValue[0]] = keyValue[1];
       }
 
-      console.log('params', params);
-      console.log('params.code', params.code);
+      console.log('code', params.code);
 
       const code = params.code;
       const requestURL = baseURL + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&redirect_uri=" + redirect_uri;
@@ -60,43 +64,49 @@
 
 
       xhttp.onload = ()=>{
-        console.log(xhttp.response);
         let resp = JSON.parse(xhttp.response);
         for(let param in resp){
           console.log(param + ': ' + resp[param]);
         }
         authToken = resp.access_token;
+        refreshToken = resp.refresh_token;
       }
 
       xhttp.onreadystatechange = () => {
         if (xhttp.readyState === xhttp.HEADERS_RECEIVED) {
-          console.log("heisann peisann");
           const contentType = xhttp.getResponseHeader("Content-Type");
         }
       }
     }
 
-    function authorize(){
-      location.href = "https://enterprise-site-9357.my.site.com/student/services/oauth2/authorize?client_id=3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N&redirect_uri=https://vmjelde.github.io/lightning-out&response_type=code";
+    function checkAuthToken(){
+      console.log(authToken);
     }
+
+    // Refresh token?
+
+
+
+    // Lightning Out
+
     function setNewId(){
         let value = document.getElementById('productidinput').value;
         lwc.productId = value;
         lwc.debugFromLWC('Du tastet inn: ' + value);
     }
 
-    function checkAuthToken(){
-      console.log(authToken);
+    function runApex(){
+      let temp = lwc.getContactId();
+      console.log(temp);
     }
+
         
     var lwc;
     const appName = 'c:LightningOut';
     const componentName = 'c:lightningOutCart';
     const lightningEndPointURI = 'https://enterprise-site-9357.my.site.com/student';
-    // Target element er dom element componenten skal henges på
     const targetElement = 'lightning';
     const componentAttributes = {};
-    var authToken ='';
 
     function createCart(){
       console.log('creat')
