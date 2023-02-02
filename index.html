@@ -31,7 +31,7 @@
       const client_id = "3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N";
       const client_secret = "A77F4A8C1DC18E772D2B0AB660D087385D4F93684A9F2B3E931B59321D1E86E8";
       const response_type = "code";
-      const baseURL = "https://enterprise-site-9357.my.salesforce.com/services/oauth2/token";
+      const baseURL = "https://enterprise-site-9357.my.salesforce.com/services/oauth2/";
       const redirect_uri = "https://vmjelde.github.io/lightning-out";
       const grant_type = "authorization_code";
 
@@ -56,7 +56,7 @@
       console.log('code', params.code);
 
       const code = params.code;
-      const requestURL = baseURL + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&redirect_uri=" + redirect_uri;
+      const requestURL = baseURL + "token" + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&redirect_uri=" + redirect_uri;
 
       let xhttp = new XMLHttpRequest();
       xhttp.open("POST", requestURL);
