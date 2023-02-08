@@ -48,18 +48,6 @@
       + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code";
 
 
-      
-      //let xhttp = new XMLHttpRequest();
-      //xhttp.open("POST", requestURL);
-      //xhttp.send();
-//
-      //xhttp.onload = ()=>{
-      //  let resp = JSON.parse(xhttp.response);
-      //  for(let param in resp){
-      //    console.log(param + ': ' + resp[param]);
-      //  }
-      //}
-
 
       location.href = requestURL;
     }
@@ -104,6 +92,7 @@
       + '&client_id=' + client_id
       + '&redirect_uri=' + redirect_uri
       //+ 'state=mystate'
+      + '&scope=refresh_token'
     }
 
     function checkAuthToken(){
