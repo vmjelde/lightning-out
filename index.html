@@ -100,7 +100,7 @@
     }
 
     function authorizeUserAgent(){
-      location.href = 'https://login.salesforce.com/services/oauth2/authorize?response_type=token'
+      location.href = baseURL + 'authorize?response_type=token'
       + '&client_id=' + client_id
       + '&redirect_uri=' + redirect_uri
       //+ 'state=mystate'
