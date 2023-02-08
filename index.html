@@ -112,22 +112,27 @@
 
     function createCart(){
       console.log('create')
-      $Lightning.use(
-          appName,
-          function() {
-          $Lightning.createComponent(
-              componentName,
-              componentAttributes,
-              targetElement,
-              function(cmp) {
-                  lwc = cmp.elements[0];
-                  console.log("LWC component was created");
-              }
-          );
-      },
-      lightningEndPointURI,
-      authToken
-      );
+      try{
+        $Lightning.use(
+            appName,
+            function() {
+            $Lightning.createComponent(
+                componentName,
+                componentAttributes,
+                targetElement,
+                function(cmp) {
+                    lwc = cmp.elements[0];
+                    console.log("LWC component was created");
+                }
+            );
+        },
+        lightningEndPointURI,
+        authToken
+        );
+      }
+      catch(error){
+        console.log(error)
+      }
     }
 
     createCart();
