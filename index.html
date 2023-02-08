@@ -91,7 +91,7 @@
       location.href = baseURL + 'authorize?'
       + 'response_type=token'
       + '&client_id=' + client_id
-      + '&redirect_uri=' + redirect_uri
+      + '&redirect_uri=' + baseURL + 'success'
       //+ 'state=mystate'
       + '&scope=refresh_token'
     }
