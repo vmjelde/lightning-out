@@ -8,11 +8,15 @@
     <title>Lightning out test</title>
   </head>
   <body>
-  <section>
-      <button onclick="authorize()">Authorize</button>
-      <button onclick="getToken()">getToken</button>
-      <button onclick="checkAuthToken()">check authToken</button>
-  </section>
+    <section>
+        <button onclick="authorize()">Authorize Web-Server Flow</button>
+        <button onclick="getToken()">getToken</button>
+        <button onclick="checkAuthToken()">check authToken</button>
+    </section>
+    <section>
+        <button onclick="authorizeUserAgent()">Authorize User-Agent Flow</button>
+        <button onclick="checkAuthToken()">check authToken</button>
+    </section>
 
     <button onclick="createCart()">create Cart</button>
 
@@ -93,6 +97,13 @@
           const contentType = xhttp.getResponseHeader("Content-Type");
         }
       }
+    }
+
+    function authorizeUserAgent(){
+      location.href = 'https://login.salesforce.com/services/oauth2/authorize?response_type=token'
+      + '&client_id=' + client_id
+      + '&redirect_uri=' + redirect_uri
+      //+ 'state=mystate'
     }
 
     function checkAuthToken(){
