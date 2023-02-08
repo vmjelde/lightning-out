@@ -23,6 +23,7 @@
     <button onclick="runApex()">runApex</button>
     
   <div id="lightning"></div>
+  <script src="https://bicx--compoc.sandbox.my.site.com/comtest/lightning/lightning.out.js"></script>
   <script src="https://enterprise-site-9357.my.site.com/student/lightning/lightning.out.js"></script>
   <script>
 
@@ -105,34 +106,33 @@
         
     var lwc;
     const appName = 'c:LightningOut';
-    const componentName = 'c:lightningOutCart';
-    const lightningEndPointURI = 'https://enterprise-site-9357.scratch.my.site.com/student';
+    const componentName = 'c:helloWorld';
+    const lightningEndPointURI = 'https://bicx--compoc.sandbox.my.site.com/comtest';
+    // Target element er dom element componenten skal henges på
     const targetElement = 'lightning';
     const componentAttributes = {};
+    const authToken ='';
 
     function createCart(){
       console.log('create')
-      try{
-        $Lightning.use(
-            appName,
-            function() {
-            $Lightning.createComponent(
-                componentName,
-                componentAttributes,
-                targetElement,
-                function(cmp) {
-                    lwc = cmp.elements[0];
-                    console.log("LWC component was created");
-                }
-            );
-        },
-        lightningEndPointURI,
-        ''
+      
+      $Lightning.use(
+        appName,
+        function() {
+        $Lightning.createComponent(
+            componentName,
+            componentAttributes,
+            targetElement,
+            function(cmp) {
+                lwc = cmp.elements[0];
+                console.log('cmp.elements: ' + cmp.elements[0]);
+                console.log("LWC component was created");
+            }
         );
-      }
-      catch(error){
-        console.log(error)
-      }
+      },
+      lightningEndPointURI,
+      authToken
+      );
     }
 
     createCart();
