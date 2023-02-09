@@ -106,7 +106,7 @@
     var lwc;
     const appName = 'c:LightningOut';
     const componentName = 'c:lightningOutCart';
-    const lightningEndPointURI = 'https://enterprise-site-9357.scratch.my.site.com/applicant';
+    const lightningEndPointURI = 'https://enterprise-site-9357.my.site.com/applicant';
     // Target element er dom element componenten skal henges på
     const targetElement = 'lightning';
     const componentAttributes = {};
@@ -117,10 +117,8 @@
       $Lightning.use(
         appName,
         function() {
-        console.log('appppp')
-      },
-      lightningEndPointURI,
-      ''
+          console.log('APP')
+        }
       );
     }
 
