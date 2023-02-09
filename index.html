@@ -117,8 +117,18 @@
       $Lightning.use(
         appName,
         function() {
-          console.log('APP')
-        }
+          console.log('App')
+          $Lightning.createComponent(
+            componentName,
+            componentAttributes,
+            targetElement,
+            function(cmp) {
+                lwc = cmp.elements[0];
+                console.log('cmp.elements: ' + cmp.elements[0]);
+                console.log("LWC component was created");
+            }
+        );
+      }
       );
     }
 
