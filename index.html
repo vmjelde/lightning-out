@@ -7,7 +7,7 @@
 
     <title>Lightning out test</title>
   </head>
-  <body>
+  <body onload="myFunction()">
     <section>
         <button onclick="authorize()">Authorize Web-Server Flow</button>
         <button onclick="getToken()">getToken</button>
@@ -46,6 +46,16 @@
 
       location.href = requestURL;
     }
+
+    function myFunction(){
+      if(location.href.includes('?code=')){
+        getToken()
+        .then(res=>{
+          location.replace(location.href.split("?")[0]);
+        })
+      }
+    }
+
     function getToken(){
       console.log("getToken");
       let paramStringList = location.href.split("?")[1]?.split("&");
