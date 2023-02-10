@@ -15,7 +15,7 @@
         <button onclick="refreshMyToken()">refresh token</button>
     </section>
 
-    <button onclick="createCart()">create Cart</button>
+    <button onclick="showCart()">showCart</button>
 
     <label for="productidinput">Product Id</label>
     <input id="productidinput" type="text">
@@ -107,8 +107,6 @@
         }
         authToken = resp.access_token;
         lwc.access_token = authToken;
-        refreshToken = resp.refresh_token;
-        window.localStorage.setItem('my_refresh_token', refreshToken);
       }
 
       xhttp.onreadystatechange = () => {
@@ -149,14 +147,12 @@
       $Lightning.use(
         appName,
         function() {
-          console.log('App')
           $Lightning.createComponent(
             componentName,
             componentAttributes,
             targetElement,
             function(cmp) {
                 lwc = cmp.elements[0];
-                console.log('cmp.elements: ', JSON.stringify(cmp.elements[0]));
                 console.log("LWC component was created");
             }
         );
@@ -164,7 +160,11 @@
       );
     }
 
-    //createCart();
+    function showCart(){
+      lwc.showCart = true;
+    }
+
+    createCart();
 
   </script>
 
