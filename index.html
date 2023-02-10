@@ -82,6 +82,7 @@
         lwc.access_token = authToken;
         refreshToken = resp.refresh_token;
         window.localStorage.setItem('my_refresh_token', refreshToken);
+        location.replace(location.href.split("?")[0]);
       }
 
       xhttp.onreadystatechange = () => {
@@ -89,7 +90,6 @@
           const contentType = xhttp.getResponseHeader("Content-Type");
         }
       }
-      location.replace(location.href.split("?")[0]);
     }
 
     function checkAuthToken(){
