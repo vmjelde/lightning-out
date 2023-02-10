@@ -79,9 +79,6 @@
           console.log(param + ': ' + resp[param]);
         }
         authToken = resp.access_token;
-        if(lwc.access_token){
-          lwc.access_token = authToken;
-        }
         refreshToken = resp.refresh_token;
         window.localStorage.setItem('my_refresh_token', refreshToken);
         location.replace(location.href.split("?")[0]);
@@ -95,6 +92,7 @@
     }
 
     function checkAuthToken(){
+      lwc.access_token = authToken;
       console.log(response);
     }
 
@@ -116,7 +114,6 @@
           console.log(param + ': ' + resp[param]);
         }
         authToken = resp.access_token;
-        lwc?.access_token = authToken;
       }
 
       xhttp.onreadystatechange = () => {
@@ -129,18 +126,6 @@
 
 
     // Lightning Out
-
-    function setNewId(){
-        let value = document.getElementById('productidinput').value;
-        lwc.productId = value;
-        lwc.debugFromLWC('Du tastet inn: ' + value);
-    }
-
-    function runApex(){
-      let temp = lwc.getProducts2();
-      console.log(JSON.stringify(temp));
-      console.log(temp)
-    }
 
         
     var lwc;
@@ -163,10 +148,6 @@
             targetElement,
             function(cmp) {
                 lwc = cmp.elements[0];
-                
-                if(lwc?.access_token){
-                  lwc.access_token = authToken;
-                }
                 console.log("LWC component was created");
             }
         );
