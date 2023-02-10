@@ -50,9 +50,6 @@
     function myFunction(){
       if(location.href.includes('?code=')){
         getToken()
-        .then(res=>{
-          location.replace(location.href.split("?")[0]);
-        })
       }
     }
 
@@ -92,6 +89,7 @@
           const contentType = xhttp.getResponseHeader("Content-Type");
         }
       }
+      location.replace(location.href.split("?")[0]);
     }
 
     function checkAuthToken(){
