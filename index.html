@@ -71,6 +71,7 @@
           console.log(param + ': ' + resp[param]);
         }
         authToken = resp.access_token;
+        lwc.access_token = authToken;
         refreshToken = resp.refresh_token;
       }
 
