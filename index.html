@@ -116,7 +116,7 @@
           console.log(param + ': ' + resp[param]);
         }
         authToken = resp.access_token;
-        lwc.access_token = authToken;
+        lwc?.access_token = authToken;
       }
 
       xhttp.onreadystatechange = () => {
@@ -164,7 +164,7 @@
             function(cmp) {
                 lwc = cmp.elements[0];
                 
-                if(lwc.access_token){
+                if(lwc?.access_token){
                   lwc.access_token = authToken;
                 }
                 console.log("LWC component was created");
