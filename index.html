@@ -74,7 +74,7 @@
         authToken = resp.access_token;
         lwc.access_token = authToken;
         refreshToken = resp.refresh_token;
-        window.localStorage.put('my_refresh_token', refreshToken);
+        window.localStorage.setItem('my_refresh_token', refreshToken);
       }
 
       xhttp.onreadystatechange = () => {
@@ -92,7 +92,7 @@
 
     function refreshToken(){
 
-      const requestURL = baseURL + "token" + "?grant_type=refresh_token" + "&client_id=" + client_id + "&refresh_token=" + window.localStorage.get('my_refresh_token');
+      const requestURL = baseURL + "token" + "?grant_type=refresh_token" + "&client_id=" + client_id + "&refresh_token=" + window.localStorage.getItem('my_refresh_token');
 
 
       let xhttp = new XMLHttpRequest();
@@ -108,7 +108,7 @@
         authToken = resp.access_token;
         lwc.access_token = authToken;
         refreshToken = resp.refresh_token;
-        window.localStorage.put('my_refresh_token', refreshToken);
+        window.localStorage.setItem('my_refresh_token', refreshToken);
       }
 
       xhttp.onreadystatechange = () => {
