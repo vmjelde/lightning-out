@@ -12,6 +12,7 @@
         <button onclick="authorize()">Authorize Web-Server Flow</button>
         <button onclick="getToken()">getToken</button>
         <button onclick="checkAuthToken()">check authToken</button>
+        <button onclick="refreshToken()">refresh token</button>
     </section>
 
     <button onclick="createCart()">create Cart</button>
@@ -73,6 +74,7 @@
         authToken = resp.access_token;
         lwc.access_token = authToken;
         refreshToken = resp.refresh_token;
+        window.localStorage.put('my_refresh_token', refreshToken);
       }
 
       xhttp.onreadystatechange = () => {
@@ -88,6 +90,34 @@
 
     // Refresh token?
 
+    function refreshToken(){
+
+      const requestURL = baseURL + "token" + "?grant_type=refresh_token" + "&client_id=" + client_id + "&refresh_token=" + window.localStorage.get('my_refresh_token');
+
+
+      let xhttp = new XMLHttpRequest();
+      xhttp.open("POST", requestURL);
+      xhttp.send();
+
+      xhttp.onload = ()=>{
+        let resp = JSON.parse(xhttp.response);
+        response = resp;
+        for(let param in resp){
+          console.log(param + ': ' + resp[param]);
+        }
+        authToken = resp.access_token;
+        lwc.access_token = authToken;
+        refreshToken = resp.refresh_token;
+        window.localStorage.put('my_refresh_token', refreshToken);
+      }
+
+      xhttp.onreadystatechange = () => {
+        if (xhttp.readyState === xhttp.HEADERS_RECEIVED) {
+          const contentType = xhttp.getResponseHeader("Content-Type");
+        }
+      }
+
+    }
 
 
     // Lightning Out
