@@ -83,7 +83,6 @@
         window.localStorage.setItem('my_refresh_token', refreshToken);
         //location.replace(location.href.split("?")[0]);
         refreshMyToken();
-        checkAuthToken();
       }
 
       xhttp.onreadystatechange = () => {
@@ -116,6 +115,7 @@
           console.log(param + ': ' + resp[param]);
         }
         authToken = resp.access_token;
+        checkAuthToken();
       }
 
       xhttp.onreadystatechange = () => {
