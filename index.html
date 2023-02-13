@@ -81,7 +81,7 @@
         authToken = resp.access_token;
         refreshToken = resp.refresh_token;
         window.localStorage.setItem('my_refresh_token', refreshToken);
-        location.replace(location.href.split("?")[0]);
+        //location.replace(location.href.split("?")[0]);
         refreshMyToken();
         checkAuthToken();
       }
