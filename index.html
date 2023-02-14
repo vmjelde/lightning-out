@@ -23,7 +23,7 @@
     <button onclick="setNewId()">Add Product</button>
     <button onclick="runApex()">runApex</button>
     
-  <div id="lightning"></div>
+  <div onload="createCart()" id="lightning"></div>
   <script src="https://computing-app-3411.my.site.com/applicant/lightning/lightning.out.js"></script>
   <script>
 
@@ -34,7 +34,7 @@
       const baseURL = "https://computing-app-3411.my.site.com/student/services/oauth2/";
       const redirect_uri = "https://vmjelde.github.io/lightning-out";
       const grant_type = "authorization_code";
-      
+
     var lwc;
     var authToken ='';
     var refreshToken = '';
@@ -46,12 +46,6 @@
       + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code";
 
       location.href = requestURL;
-    }
-
-    function myFunction(){
-      if(location.href.includes('?code=')){
-        getToken()
-      }
     }
 
     function getToken(){
@@ -161,7 +155,11 @@
       lwc.showCart = true;
     }
 
-    createCart();
+    function myFunction(){
+      if(location.href.includes('?code=')){
+        getToken()
+      }
+    }
     myFunction();
 
   </script>
