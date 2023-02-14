@@ -23,9 +23,35 @@
     <button onclick="setNewId()">Add Product</button>
     <button onclick="runApex()">runApex</button>
     
-  <div onload="createCart()" id="lightning"></div>
+  <div id="lightning"></div>
   <script src="https://computing-app-3411.my.site.com/applicant/lightning/lightning.out.js"></script>
   <script>
+
+    // Initiate Cart
+    
+    var lwc;
+    
+    function createCart(){
+      console.log('create')
+      
+      $Lightning.use(
+        appName,
+        function() {
+          $Lightning.createComponent(
+            componentName,
+            componentAttributes,
+            targetElement,
+            function(cmp) {
+                lwc = cmp.elements[0];
+                console.log("LWC component was created");
+                console.log(lwc);
+            }
+        );
+      }
+      );
+    }
+
+    createCart();
 
     // AUTHORIZATION
 
@@ -35,7 +61,6 @@
       const redirect_uri = "https://vmjelde.github.io/lightning-out";
       const grant_type = "authorization_code";
 
-    var lwc;
     var authToken ='';
     var refreshToken = '';
     var response;
@@ -132,24 +157,6 @@
     const targetElement = 'lightning';
     const componentAttributes = {};
 
-    function createCart(){
-      console.log('create')
-      
-      $Lightning.use(
-        appName,
-        function() {
-          $Lightning.createComponent(
-            componentName,
-            componentAttributes,
-            targetElement,
-            function(cmp) {
-                lwc = cmp.elements[0];
-                console.log("LWC component was created");
-            }
-        );
-      }
-      );
-    }
 
     function showCart(){
       lwc.showCart = true;
