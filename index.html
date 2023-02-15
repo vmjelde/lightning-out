@@ -30,41 +30,33 @@
     // Initiate Cart
     
     var lwc;
-
-    
-        
     const appName = 'c:LightningOut';
     const componentName = 'c:lightningOutCart';
-    const lightningEndPointURI = 'https://computing-app-3411.my.site.com/applicant';
-    // Target element er dom element componenten skal henges på
-    const targetElement = 'lightning';
-    const componentAttributes = {};
+    const targetElement = 'lightning'; // Target element er dom element componenten skal henges på
     
-    function createCart(){
-      console.log('create')
+    function initCart(){
       
       $Lightning.use(
         appName,
         function() {
           $Lightning.createComponent(
             componentName,
-            componentAttributes,
+            {},
             targetElement,
             function(cmp) {
                 lwc = cmp.elements[0];
-                console.log("LWC component was created");
-                console.log(lwc);
-                setAccessToken();
             }
         );
       }
       );
     }
 
-    createCart();
+    initCart();
 
     // AUTHORIZATION
 
+
+    /*
       const client_id = "3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N";
       const response_type = "code";
       const baseURL = "https://computing-app-3411.my.site.com/student/services/oauth2/";
@@ -155,6 +147,7 @@
 
     }
 
+    */
 
     // Lightning Out
 
