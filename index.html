@@ -8,20 +8,8 @@
     <title>Lightning out test</title>
   </head>
   <body>
-    <section>
-        <button onclick="authorize()">Authorize Web-Server Flow</button>
-        <button onclick="getToken()">getToken</button>
-        <button onclick="setAccessToken()">check authToken</button>
-        <button onclick="refreshMyToken()">refresh token</button>
-    </section>
 
     <button onclick="showCart()">showCart</button>
-
-    <label for="productidinput">Product Id</label>
-    <input id="productidinput" type="text">
-
-    <button onclick="setNewId()">Add Product</button>
-    <button onclick="runApex()">runApex</button>
     
   <div id="lightning"></div>
   <script src="https://computing-app-3411.my.site.com/applicant/lightning/lightning.out.js"></script>
@@ -53,116 +41,12 @@
 
     initCart();
 
-    // AUTHORIZATION
-
-
-    /*
-      const client_id = "3MVG931doue2KUvySSE.Yo.gSGrbORWHO5Bdu5C.UlzeJXTxXnqIUftCgFpReOiPvMlk9OPgNeCbsfP0cdF4N";
-      const response_type = "code";
-      const baseURL = "https://computing-app-3411.my.site.com/student/services/oauth2/";
-      const redirect_uri = "https://vmjelde.github.io/lightning-out";
-      const grant_type = "authorization_code";
-
-    var authToken ='';
-    var refreshToken = '';
-    var response;
-
-    function authorize(){
-      console.log("authorize");
-      const requestURL = baseURL + "authorize" + "?client_id=" + client_id
-      + "&redirect_uri=" + "https://vmjelde.github.io/lightning-out" + "&response_type=code";
-
-      location.href = requestURL;
-    }
-
-    function getToken(){
-      console.log("getToken");
-      let paramStringList = location.href.split("?")[1]?.split("&");
-      let params = {};
-      for(let paramString of paramStringList){
-        let keyValue = paramString.split("=");
-        params[keyValue[0]] = keyValue[1];
-      }
-
-      console.log('code', params.code);
-
-      const code = params.code;
-      const requestURL = baseURL + "token" + "?grant_type=" + grant_type + "&code=" + code + "&client_id=" + client_id + "&redirect_uri=" + redirect_uri;
-
-      let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", requestURL);
-      xhttp.send();
-
-
-      xhttp.onload = ()=>{
-        let resp = JSON.parse(xhttp.response);
-        response = resp;
-        for(let param in resp){
-          console.log(param + ': ' + resp[param]);
-        }
-        authToken = resp.access_token;
-        refreshToken = resp.refresh_token;
-        window.localStorage.setItem('my_refresh_token', refreshToken);
-        //location.replace(location.href.split("?")[0]);
-        refreshMyToken();
-      }
-
-      xhttp.onreadystatechange = () => {
-        if (xhttp.readyState === xhttp.HEADERS_RECEIVED) {
-          const contentType = xhttp.getResponseHeader("Content-Type");
-        }
-      }
-    }
-
-    function setAccessToken(){
-      lwc.access_token = authToken;
-    }
-
-    // Refresh token?
-
-    function refreshMyToken(){
-
-      const requestURL = baseURL + "token" + "?grant_type=refresh_token" + "&client_id=" + client_id + "&refresh_token=" + window.localStorage.getItem('my_refresh_token');
-
-
-      let xhttp = new XMLHttpRequest();
-      xhttp.open("POST", requestURL);
-      xhttp.send();
-
-      xhttp.onload = ()=>{
-        let resp = JSON.parse(xhttp.response);
-        response = resp;
-        for(let param in resp){
-          console.log(param + ': ' + resp[param]);
-        }
-        authToken = resp.access_token;
-        setAccessToken();
-      }
-
-      xhttp.onreadystatechange = () => {
-        if (xhttp.readyState === xhttp.HEADERS_RECEIVED) {
-          const contentType = xhttp.getResponseHeader("Content-Type");
-        }
-      }
-
-    }
-
-    */
-
     // Lightning Out
 
-
-
     function showCart(){
-      lwc.showCart = true;
+      let element = document.getElementById('lightning-out-cart');
+      console.log(element);
     }
-
-    function myFunction(){
-      if(location.href.includes('?code=')){
-        getToken()
-      }
-    }
-    myFunction();
 
   </script>
 
