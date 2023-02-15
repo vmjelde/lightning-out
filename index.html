@@ -9,21 +9,22 @@
   </head>
   <body>
 
-    <button onclick="showCart()">showCart</button>
+    <label for="product">Product Id</label>
+    <input type="text" id="product">
+    <button onclick="addProductToCart()">Add to cart</button>
     
   <div id="lightning"></div>
+
   <script src="https://computing-app-3411.my.site.com/applicant/lightning/lightning.out.js"></script>
   <script>
 
     // Initiate Cart
-    
     var lwc;
     const appName = 'c:LightningOut';
     const componentName = 'c:lightningOutCart';
     const targetElement = 'lightning'; // Target element er dom element componenten skal henges på
-    
+
     function initCart(){
-      
       $Lightning.use(
         appName,
         function() {
@@ -38,23 +39,18 @@
       }
       );
     }
-
     initCart();
 
     // Lightning Out
 
-    function showCart(){
-      let element = document.getElementById('lightning-out-cart');
+    function addProductToCart(){
+      let element = document.querySelector('c-lightning-out-cart');
       console.log(element);
+      let productId = document.getElementById('product').value;
+      element.addCartItem(productId);
     }
 
   </script>
-
-  <style>
-    section{
-      margin-bottom: 1rem;
-    }
-  </style>
 
   </body>
 </html>
