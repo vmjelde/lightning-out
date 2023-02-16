@@ -12,9 +12,14 @@
     <label for="product">Product Id</label>
     <input type="text" id="product">
     <button onclick="addProductToCart()">Add to cart</button>
+
+    
+    <label for="cartitem">CartItem Id</label>
+    <input type="text" id="cartitem">
+    <button onclick="deleteCartItem()">Delete</button>
     
   <div id="lightning"></div>
-
+  
   <script src="https://computing-app-3411.my.site.com/applicant/lightning/lightning.out.js"></script>
   <script>
 
@@ -48,6 +53,13 @@
       console.log(element);
       let productId = document.getElementById('product').value;
       element.addCartItem(productId);
+    }
+
+    function deleteCartItem(){
+      let element = document.querySelector('c-lightning-out-cart');
+      console.log(element);
+      let cartItemId = document.getElementById('cartitem').value;
+      element.deleteCartItem(cartItemId);
     }
 
   </script>
