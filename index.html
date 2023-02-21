@@ -21,7 +21,7 @@
     
   <div id="lightning"></div>
   
-  <script src="https://computing-app-3411.my.site.com/applicant/lightning/lightning.out.js"></script>
+  <script src="https://page-energy-8358.my.site.com/applicant/lightning/lightning.out.js"></script>
   <script>
 
     // Initiate Cart
@@ -30,13 +30,14 @@
     const componentName = 'c:lightningOutCart';
     const targetElement = 'lightning'; // Target element er dom element componenten skal henges på
 
+
     function initCart(){
       $Lightning.use(
         appName,
         function() {
           $Lightning.createComponent(
             componentName,
-            {},
+            inputParameters,
             targetElement,
             function(cmp) {
                 lwc = cmp.elements[0];
