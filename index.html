@@ -30,6 +30,8 @@
     const componentName = 'c:lightningOutCart';
     const targetElement = 'lightning'; // Target element er dom element componenten skal henges på
     const inputParameters = {}
+    const lightningEndPointURI = '';
+    const authToken = '00D9O000000C0tt!AQEAQHfwIgvNH4FzxmLGe5zHgshfBz0TNpGlonnAXqdZoPhDKZme9c8ealYfpd4_q9gyvpCZzjNKChrZ7QwHN.Xlu_m41Cgz';
 
     function initCart(){
       $Lightning.use(
@@ -46,7 +48,9 @@
               lwc = cmp.elements[0];
             }
         );
-      }
+      },
+      lightningEndPointURI,
+      authToken
       );
     }
     initCart();
