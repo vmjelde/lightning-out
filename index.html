@@ -35,12 +35,15 @@
       $Lightning.use(
         appName,
         function() {
+        console.log('app fun')
+
           $Lightning.createComponent(
             componentName,
             inputParameters,
             targetElement,
             function(cmp) {
-                lwc = cmp.elements[0];
+              console.log('cmp fun')
+              lwc = cmp.elements[0];
             }
         );
       }
