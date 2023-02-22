@@ -37,19 +37,6 @@
       console.log("init cart")
 
       
-      browser.cookies.get({
-        url: 'https://vmjelde.github.io',
-        name: "sid"
-      }).then((result)=>{
-        result.value;
-      })
-      browser.cookies.get({
-        url: 'java-business-6901.my.site.com',
-        name: "sid"
-      }).then((result)=>{
-        result.value;
-      })
-
       $Lightning.use(
         appName,
         function() {
