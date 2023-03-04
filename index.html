@@ -87,6 +87,7 @@
     const client_id = '3MVG9T992fY2Y4vtbeb7Mf.HU8GGfFpIM7pZIVdms3AvvUJY0hZT7rfpTN9hOirRwYo6PVWOGZ3gGK30NHTBH';
     const client_secret = '75526DB855B797EBBA1664D93A990820F55869B7058CEAE3BF793BEFECB1917C';
     const redirect_uri = 'https://vmjelde.github.io/lightning-out';
+    let code = '';
     function authorize(){
       const authorizationURL = lightningEndPointURI + "/services/oauth2/authorize" + "?client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&response_type=code";
       location.href = authorizationURL;
@@ -114,6 +115,7 @@
           let temp = parameter.split('=');
           urlParameters[temp[0]] = temp[1];
       }
+      code = urlParameters.code;
       let refresh = window.location.protocol + '//' + window.location.host + window.location.pathname;
       window.history.pushState({ path: refresh }, '', refresh);
     }
