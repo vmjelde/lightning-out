@@ -8,6 +8,8 @@
     <title>Lightning out test</title>
   </head>
   <body>
+    <button onclick="authorize()">authorize</button>
+    <button onclick="token()">token</button>
 
     <label for="product">Product Id</label>
     <input type="text" id="product">
@@ -20,7 +22,7 @@
     <button onclick="getWebCart()">Get Cart</button>
     
   <div id="lightning"></div>
-  <script src="https://enterprise-force-7147.my.site.com/student/lightning/lightning.out.js"></script>
+  <script src="https://bicx--dev.my.site.com/student/lightning/lightning.out.js"></script>
   
   <script>
 
@@ -30,8 +32,8 @@
     const componentName = 'c:lightningOutCart';
     const targetElement = 'lightning'; // Target element er dom element componenten skal henges på
     const inputParameters = {}
-    const lightningEndPointURI = 'https://enterprise-force-7147.my.site.com/student';
-    const authToken = '';
+    const lightningEndPointURI = 'https://bicx--dev.my.site.com/student';
+    let authToken = '';
 
     function initCart(){
       console.log("init cart")
@@ -75,6 +77,40 @@
       let element = document.querySelector('c-lightning-out-cart');
       let cart = element.getWebCart();
       console.log(JSON.stringify(cart));
+    }
+
+
+
+    const client_id = ''
+    const redirect_uri = 'https://vmjelde.github.io/lightning-out/';
+    function authorize(){
+      const authorizationURL = lightningEndPointURI + "services/oauth2/authorize" + "?client_id=" + client_id + "&redirect_uri=" + redirect_uri + "&response_type=code";
+      location.href = authorizationURL;
+    }
+
+    function token(){
+      const tokenUrl = lightningEndPointURI + "services/oauth2/token" + "?grant_type=authorization_code" + "&code=" + code + "&client_id=" + client_id + "&redirect_uri=" + redirect_uri;
+      fetch(tokenUrl, {
+          method: 'POST'
+      })
+      .then((response) => {
+          response.json().then((res)=>{
+            authToken = res.access_token;
+            console.log(authToken);
+          })
+      })
+    }
+    
+    let urlParameters = {};
+    let currentUrl = location.href;
+    if(currentUrl.includes('?')){
+      let parameters = currentUrl.split('?')[1].split('&');
+      for(let parameter of parameters){
+          let temp = parameter.split('=');
+          urlParameters[temp[0]] = temp[1];
+      }
+      let refresh = window.location.protocol + '//' + window.location.host + window.location.pathname;
+      window.history.pushState({ path: refresh }, '', refresh);
     }
 
   </script>
