@@ -101,6 +101,7 @@
       })
       .then((response) => {
         response.json().then((res)=>{
+          console.log(res);
           authToken = res.access_token;
           console.log(authToken);
           initCart();
