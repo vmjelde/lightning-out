@@ -39,13 +39,11 @@
     function initCart(){
       console.log("init cart")
       console.log('authToken', authToken)
-      if(authToken != ''){
-          
+      if(authToken != ''){ 
         $Lightning.use(
           appName,
           function() {
-          console.log('app fun')
-
+            console.log('app fun')
             $Lightning.createComponent(
               componentName,
               inputParameters,
@@ -54,8 +52,10 @@
                 console.log('cmp fun')
                 lwc = cmp.elements[0];
               }
-          );
-        }
+            );
+          },
+          lightningEndPointURI,
+          authToken
         );
       }
 
