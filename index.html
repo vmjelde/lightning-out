@@ -40,29 +40,23 @@
       console.log("init cart")
       console.log('authToken', authToken)
       if(authToken != ''){ 
-        try{
-          $Lightning.use(
-            appName,
-            function() {
-              console.log('app fun')
-              $Lightning.createComponent(
-                componentName,
-                inputParameters,
-                targetElement,
-                function(cmp) {
-                  console.log('cmp fun')
-                  lwc = cmp.elements[0];
-                }
-              );
-            },
-            lightningEndPointURI,
-            authToken
-          );
-        }
-        catch(error){
-          console.log(JSON.stringify(error));
-          throw error;
-        }
+        $Lightning.use(
+          appName,
+          function() {
+            console.log('app fun')
+            $Lightning.createComponent(
+              componentName,
+              inputParameters,
+              targetElement,
+              function(cmp) {
+                console.log('cmp fun')
+                lwc = cmp.elements[0];
+              }
+            );
+          },
+          lightningEndPointURI,
+          authToken
+        );
       }
     }
     initCart();
