@@ -37,23 +37,26 @@
 
     function initCart(){
       console.log("init cart")
+      if(authToken != ''){
+          
+        $Lightning.use(
+          appName,
+          function() {
+          console.log('app fun')
 
-      $Lightning.use(
-        appName,
-        function() {
-        console.log('app fun')
-
-          $Lightning.createComponent(
-            componentName,
-            inputParameters,
-            targetElement,
-            function(cmp) {
-              console.log('cmp fun')
-              lwc = cmp.elements[0];
-            }
+            $Lightning.createComponent(
+              componentName,
+              inputParameters,
+              targetElement,
+              function(cmp) {
+                console.log('cmp fun')
+                lwc = cmp.elements[0];
+              }
+          );
+        }
         );
       }
-      );
+
     }
     initCart();
 
