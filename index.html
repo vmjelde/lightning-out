@@ -23,7 +23,7 @@
     <button onclick="getWebCart()">Get Cart</button>
     
   <div id="lightning"></div>
-  <script src="https://bicx--dev.sandbox.my.salesforce.com/lightning/lightning.out.js"></script>
+  <script src="https://bicx--dev.sandbox.my.site.com/student/lightning/lightning.out.js"></script>
   
   <script>
 
@@ -33,7 +33,7 @@
     const componentName = 'c:lightningOutCart';
     const targetElement = 'lightning'; // Target element er dom element componenten skal henges på
     const inputParameters = {}
-    const lightningEndPointURI = 'https://bicx--dev.sandbox.lightning.force.com';
+    const lightningEndPointURI = 'https://bicx--dev.sandbox.my.site.com/student';
     let authToken = '';
 
     function initCart(){
@@ -59,6 +59,7 @@
         );
       }
     }
+    initCart();
 
     // Lightning Out
 
@@ -103,6 +104,7 @@
         response.json().then((res)=>{
           console.log(res);
           authToken = res.access_token;
+          console.log(authToken);
           initCart();
         })
       })
